@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../models/meal.dart';
+import '../widgets/drawer.dart';
 import 'categories.dart';
 import 'meals.dart';
 
@@ -65,6 +66,7 @@ class _TabsScreenState extends State<TabsScreen> {
           fontWeight: FontWeight.bold,
         ),
       ),
+      drawer: MyDrawer(),
       body: activePage,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
