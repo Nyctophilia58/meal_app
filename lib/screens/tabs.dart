@@ -47,6 +47,21 @@ class _TabsScreenState extends State<TabsScreen> {
     });
   }
 
+  void _setScreen(String identifier) {
+    if (identifier == 'filters') {
+      setState(() {
+        _selectedPageIndex = 1;
+      });
+      Navigator.of(context).pop();
+    }
+    else{
+      setState(() {
+        _selectedPageIndex = 0;
+      });
+      Navigator.of(context).pop();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget activePage = CategoriesScreen(toggleFavorite: _toggleFavorite );
@@ -66,7 +81,7 @@ class _TabsScreenState extends State<TabsScreen> {
           fontWeight: FontWeight.bold,
         ),
       ),
-      drawer: MyDrawer(),
+      drawer: MyDrawer(onSelected: _setScreen),
       body: activePage,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
