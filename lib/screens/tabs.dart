@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:meal_app/screens/filters.dart';
 import '../models/meal.dart';
 import '../widgets/drawer.dart';
 import 'categories.dart';
@@ -48,17 +48,11 @@ class _TabsScreenState extends State<TabsScreen> {
   }
 
   void _setScreen(String identifier) {
+    Navigator.of(context).pop();
     if (identifier == 'filters') {
-      setState(() {
-        _selectedPageIndex = 1;
-      });
-      Navigator.of(context).pop();
-    }
-    else{
-      setState(() {
-        _selectedPageIndex = 0;
-      });
-      Navigator.of(context).pop();
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (ctx) => const FilterScreen()),
+      );
     }
   }
 
